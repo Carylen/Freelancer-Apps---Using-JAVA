@@ -92,7 +92,7 @@ public class StudyCase {
     public static void menuadmin(){
         int n;
         cls();
-        System.out.println("-----------------------------");
+        System.out.println("-------------- ADMIN ---------------");
         System.out.println("Selamat datang admin");
         System.out.println("1. Lihat data");
         System.out.println("2. Hapus data");
@@ -102,7 +102,7 @@ public class StudyCase {
         switch(n){
             case 1:
                 System.out.println("lihat data");
-                System.out.println("-----------------------------");
+                System.out.println("--------------- ADMIN --------------");
                 System.out.println("data admin :");
                 System.out.println("nama admin : "+admin.usernameAdmin);
                 System.out.println("pass admin : "+admin.passAdmin);
@@ -128,7 +128,8 @@ public class StudyCase {
                 break;
                 
             case 2:
-                System.out.println("-----------------------------");
+                cls();
+                System.out.println("------------- ADMIN ----------------");
                 System.out.println("1. Hapus data client");
                 System.out.println("2. Hapus data freelances");
                 System.out.println("3. exit");
@@ -212,7 +213,7 @@ public class StudyCase {
     public static void menuclient(){
         Scanner input = new Scanner(System.in);
         
-        System.out.println("-----------------------------");
+        System.out.println("-------------- CLIENT ---------------");
         System.out.println("\t\tUpload project");
         System.out.print("deskProject : ");
         String deskProject = input.next();
@@ -236,7 +237,7 @@ public class StudyCase {
     public static void menufreelances(){
         Scanner input = new Scanner(System.in);
         int n;
-        System.out.println("-----------------------------");
+        System.out.println("-------------- Freelancer ---------------");
         System.out.println("1. Lihat project");
         System.out.println("2. Ambil project");
         System.out.println("3. lihat project yang diambil");
@@ -245,8 +246,8 @@ public class StudyCase {
         
         switch(n){
             case 1:
-                System.out.println("-----------------------------");
-                System.out.println("Data project");
+                System.out.println("-------------- Freelancer ---------------");
+                System.out.println("\t\tData project");
                 if(client.usernameClient.isEmpty()){
                     System.out.println("-----------------------------");
                     System.out.println("Tidak ada project");
@@ -265,8 +266,8 @@ public class StudyCase {
                 }
                 break;
             case 2:
-                System.out.println("-----------------------------");
-                System.out.println("Data project");
+                System.out.println("-------------- Freelancer ---------------");
+                System.out.println("\t\tData project");
                 for(int i=0;i<client.usernameClient.size();i++){
                     System.out.println("Nama client\t: "+client.usernameClient.get(i));
                     System.out.println("deskProject\t: "+client.deskProject.get(i));
@@ -278,7 +279,7 @@ public class StudyCase {
                 System.out.println("Masukkan nama client yang ingin diambil");
                 /* Cek kondisi ketika data freelancer isEmpty() */
                 if(client.usernameClient.isEmpty()){
-                    System.out.println("-----------------------------");
+                    System.out.println("--------------- Freelancer --------------");
                     System.out.println("Tidak ada project");
                 }else{
                     String usernameClient = input.next();
@@ -379,28 +380,23 @@ public class StudyCase {
                 flag = cekrole(userName, userPass);
                 switch(flag){
                     case 1:
-                        System.out.println("Selamat datang admin");
                         menuadmin();
                         cls();
                         break;
                     case 2:
-                        System.out.println("Selamat datang client");
                         menuclient();
                         cls();
                         break;
                     case 3:
-                        System.out.println("Selamat datang freelances");
                         menufreelances();
                         cls();
                         break;
                     default:
                         System.out.println("Username atau password salah");
-                        a = false;
+                        kedua = false;
                         break;
+                }
             }
-            }
-            
+        }
     }
-    }
-
 }
